@@ -34,6 +34,7 @@ def parse_file(filename):
     file_content = open(filename, 'r')           # Opens file for reading
 
     str_num = file_content.readline()           # The first line of the file, which is the number of entries in the file
+    print(int(str_num[:-1]))
     str_num = int(str_num[:-1])                 # The '/n' character needs to be removed
 
     places_list = []
@@ -96,10 +97,19 @@ def extract_place(file_content):
     # TODO   the line starts with a #; if it does, ignore that line.
 
     name = file_content.readline().strip("\n")
+    print(name)
+    location = file_content.readline().strip("\n")
+    print(location)
+    latitude = float(file_content.readline().strip("\n"))
+    print(latitude)
+    longitude = float(file_content.readline().strip("\n"))
+    print(longitude)
+    color = file_content.readline().strip("\n")
+    print(color)
 
     # FIXME Construct a tuple with all five values in the correct order. Don't forget types, and tuples are immutable!
     # Example: place_tuple = ("Scott's example", "Somewhere special", 41, -10, "black")
-    place_tuple = (name, )      # Finish assembling the tuple!
+    place_tuple = (name, location, latitude, longitude, color)      # Finish assembling the tuple!
     return place_tuple
 
 
