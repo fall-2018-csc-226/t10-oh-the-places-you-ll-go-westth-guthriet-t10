@@ -95,16 +95,39 @@ def extract_place(file_content):
     # TODO   Just like above (line 37), you need to remove the last character (\n).
     # TODO   Once you've got the code working for all five lines, add a conditional that checks to see if
     # TODO   the line starts with a #; if it does, ignore that line.
-
-    name = file_content.readline().strip("\n")
+    name = "pending"
+    location = "pending"
+    latitude = "pending"
+    longitude = "pending"
+    color = "pending"
+    while name == "pending":
+        name = file_content.readline().strip("\n")
+        if name[0] == "#":
+            name = "pending"
     print(name)
-    location = file_content.readline().strip("\n")
+    while location == "pending":
+        location = file_content.readline().strip("\n")
+        if location[0] == "#":
+            location = "pending"
     print(location)
-    latitude = float(file_content.readline().strip("\n"))
+    while latitude == "pending":
+        latitude = file_content.readline().strip("\n")
+        if latitude[0] == "#":
+            latitude = "pending"
+        else:
+            latitude = float(latitude)
     print(latitude)
-    longitude = float(file_content.readline().strip("\n"))
+    while longitude == "pending":
+        longitude = file_content.readline().strip("\n")
+        if longitude[0] == "#":
+            longitude = "pending"
+        else:
+            longitude = float(longitude)
     print(longitude)
-    color = file_content.readline().strip("\n")
+    while color == "pending":
+        color = file_content.readline().strip("\n")
+        if color[0] == "#":
+            color = "pending"
     print(color)
 
     # FIXME Construct a tuple with all five values in the correct order. Don't forget types, and tuples are immutable!
