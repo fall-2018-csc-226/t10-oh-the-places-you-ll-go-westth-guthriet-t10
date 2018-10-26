@@ -1,6 +1,6 @@
 ######################################################################
-# Author: Emily Lovell & Scott Heggen      TODO: Change this to your names
-# Username: lovelle & heggens             TODO: Change this to your usernames
+# Author: Thomas Guthrie && Thomas West
+# Username: guthriet && westth
 #
 # Assignment: T10: Oh, the Places You'll Go!
 #
@@ -34,6 +34,7 @@ def parse_file(filename):
     file_content = open(filename, 'r')           # Opens file for reading
 
     str_num = file_content.readline()           # The first line of the file, which is the number of entries in the file
+    print(int(str_num[:-1]))
     str_num = int(str_num[:-1])                 # The '/n' character needs to be removed
 
     places_list = []
@@ -88,18 +89,43 @@ def extract_place(file_content):
     :return: a tuple representing a single place.
     """
 
-    # TODO   Read the next five lines of the file, we've done the first one for you (name = ...).
-    # TODO   The order of the lines are: name, location, latitude, longitude, and user color.
-    # TODO   Take a look at places.txt to see the structure of the data.
-    # TODO   Just like above (line 37), you need to remove the last character (\n).
-    # TODO   Once you've got the code working for all five lines, add a conditional that checks to see if
-    # TODO   the line starts with a #; if it does, ignore that line.
+    name = "pending"
+    location = "pending"
+    latitude = "pending"
+    longitude = "pending"
+    color = "pending"
+    while name == "pending":
+        name = file_content.readline().strip("\n")
+        if name[0] == "#":
+            name = "pending"
+    print(name)
+    while location == "pending":
+        location = file_content.readline().strip("\n")
+        if location[0] == "#":
+            location = "pending"
+    print(location)
+    while latitude == "pending":
+        latitude = file_content.readline().strip("\n")
+        if latitude[0] == "#":
+            latitude = "pending"
+        else:
+            latitude = float(latitude)
+    print(latitude)
+    while longitude == "pending":
+        longitude = file_content.readline().strip("\n")
+        if longitude[0] == "#":
+            longitude = "pending"
+        else:
+            longitude = float(longitude)
+    print(longitude)
+    while color == "pending":
+        color = file_content.readline().strip("\n")
+        if color[0] == "#":
+            color = "pending"
+    print(color)
 
-    name = file_content.readline().strip("\n")
-
-    # FIXME Construct a tuple with all five values in the correct order. Don't forget types, and tuples are immutable!
     # Example: place_tuple = ("Scott's example", "Somewhere special", 41, -10, "black")
-    place_tuple = (name, )      # Finish assembling the tuple!
+    place_tuple = (name, location, latitude, longitude, color)      # Finish assembling the tuple!
     return place_tuple
 
 
